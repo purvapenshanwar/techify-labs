@@ -3,6 +3,7 @@
 import type { ReactNode } from "react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 import TopBar from "./TopBar";
 
 type MenuKey = "solutions" | "knowledge" | null;
@@ -44,7 +45,7 @@ const solutionsSections = [
 
 const knowledgeLinks = [
   { label: "Case Studies", href: "#", Icon: IconFolder },
-  { label: "Our Team", href: "#", Icon: IconUsers },
+  { label: "Our Team", href: "/about#team", Icon: IconUsers },
   { label: "Blogs", href: "#", Icon: IconBook },
 ];
 
@@ -309,8 +310,8 @@ export default function Navbar() {
           aria-hidden
         />
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-2.5 sm:px-8 lg:px-10">
-        <a
-          href="#"
+        <Link
+          href="/"
           className="group flex shrink-0 items-center gap-3 rounded-xl py-0.5 pr-2 transition hover:opacity-95"
         >
           <div className="relative flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-indigo-600 via-violet-600 to-indigo-700 text-sm font-bold text-white shadow-lg shadow-indigo-500/30 ring-2 ring-white transition group-hover:shadow-indigo-500/45 group-hover:ring-violet-200/50">
@@ -325,15 +326,15 @@ export default function Navbar() {
               Accelerating brands
             </span>
           </div>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-0.5 md:flex" aria-label="Main">
-          <a
-            href="#"
+          <Link
+            href="/"
             className="rounded-full px-3.5 py-2 text-sm font-semibold text-slate-600 transition-all duration-200 hover:bg-violet-50 hover:text-violet-700"
           >
             Home
-          </a>
+          </Link>
 
           <div
             className="relative"
@@ -493,18 +494,18 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          <a
-            href="#"
+          <Link
+            href="/about"
             className="rounded-full px-3.5 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-100/90 hover:text-violet-700"
           >
             About Us
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            href="/contact"
             className="rounded-full px-3.5 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-100/90 hover:text-violet-700"
           >
             Contact Us
-          </a>
+          </Link>
         </nav>
 
         <div className="flex items-center gap-2">
@@ -573,13 +574,13 @@ export default function Navbar() {
               className="fixed inset-x-0 top-[6.75rem] z-50 mx-3 max-h-[min(82vh,calc(100dvh-8rem))] overflow-y-auto rounded-2xl border border-white/[0.12] bg-slate-950/95 p-4 shadow-[0_24px_80px_-12px_rgba(15,23,42,0.85)] ring-1 ring-white/10 backdrop-blur-2xl md:hidden"
             >
               <nav className="flex flex-col gap-0.5" aria-label="Mobile">
-                <a
-                  href="#"
+                <Link
+                  href="/"
                   className="rounded-xl px-4 py-3.5 text-sm font-bold text-white/90 transition-colors hover:bg-white/[0.08]"
                   onClick={() => setMobileOpen(false)}
                 >
                   Home
-                </a>
+                </Link>
                 <button
                   type="button"
                   className="flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-left text-sm font-bold text-white transition hover:bg-white/[0.05]"
@@ -669,20 +670,20 @@ export default function Navbar() {
                   )}
                 </AnimatePresence>
 
-                <a
-                  href="#"
+                <Link
+                  href="/about"
                   className="rounded-xl px-4 py-3.5 text-sm font-bold text-white/90 transition hover:bg-white/[0.05]"
                   onClick={() => setMobileOpen(false)}
                 >
                   About Us
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  href="/contact"
                   className="rounded-xl px-4 py-3.5 text-sm font-bold text-white/90 transition hover:bg-white/[0.05]"
                   onClick={() => setMobileOpen(false)}
                 >
                   Contact Us
-                </a>
+                </Link>
                 <motion.button
                   type="button"
                   whileTap={{ scale: 0.98 }}

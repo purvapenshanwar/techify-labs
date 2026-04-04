@@ -23,11 +23,11 @@ const services = [
 ];
 
 const bottomLinks = [
-  { label: "Home", href: "#" },
-  { label: "About Us", href: "#" },
-  { label: "Services", href: "#" },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  { label: "Services", href: "/#services" },
   { label: "Blogs", href: "#" },
-  { label: "Contact Us", href: "#" },
+  { label: "Contact Us", href: "/contact" },
   { label: "Sitemap", href: "#" },
 ];
 

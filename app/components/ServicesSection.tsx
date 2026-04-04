@@ -319,7 +319,7 @@ function ServiceCard({
 
 export default function ServicesSection() {
   return (
-    <section className="bg-slate-50 py-16 sm:py-20 lg:py-24" aria-labelledby="services-heading">
+    <section id="services" className="bg-slate-50 py-16 sm:py-20 lg:py-24" aria-labelledby="services-heading">
       <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
