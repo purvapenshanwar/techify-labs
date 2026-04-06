@@ -12,6 +12,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
+
       <main className="flex-1 pt-0">
         <Hero />
         <AboutSection />

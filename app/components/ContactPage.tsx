@@ -150,6 +150,10 @@ export default function ContactPage() {
     e.preventDefault();
     if (!validate()) return;
     setSubmitted(true);
+     // Auto-open mail app immediately
+  setTimeout(() => {
+    window.location.href = mailtoHref;
+  }, 400);
   };
 
   const copyEmail = async () => {
@@ -270,9 +274,10 @@ export default function ContactPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#050816]/90 via-transparent to-[#050816]/30" aria-hidden />
                   <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-8">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-violet-300/90 sm:text-[11px]">Studio hours</p>
-                    <p className="mt-1.5 text-[13px] leading-relaxed text-white/85 sm:mt-2 sm:text-[15px]">
-                      Weekdays · Replies within a business day. Active retainers have a direct line to channel leads.
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-violet-300/90 sm:text-[14px]">Studio hours</p>
+                    <p className="mt-1.5 text-[33px] leading-relaxed text-white/85 sm:mt-2 sm:text-[35px]">
+                    Contact Us
+                      {/* Weekdays · Replies within a business day. Active retainers have a direct line to channel leads. */}
                     </p>
                   </div>
                 </div>
@@ -281,7 +286,25 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
+{/* Stats bar */}
+<section className="border border-white/40 bg-white
+ py-6 sm:py-8 ">
+  <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-10">
+    <div className="grid grid-cols-2 gap-4 md:grid-cols-4 ">
+      {[
+        { num: "48h", label: "Avg first proposal" },
+        { num: "3+", label: "Years running" },
+        { num: "IST", label: "Business hours" },
+        { num: "NDA", label: "Available on request" },
+      ].map((s) => (
+        <div key={s.label} className="text-center">
+          <p className="text-2xl font-semibold text-black sm:text-3xl">{s.num}</p>
+          <p className="mt-1 text-[12px] text-black">{s.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
       {/* Main */}
       <section className="relative border-t border-violet-200/20 bg-gradient-to-b from-violet-50/40 via-slate-50 to-slate-100 py-12 sm:py-20 lg:py-24">
         <div
@@ -294,15 +317,15 @@ export default function ContactPage() {
             <p className="mt-2 text-lg font-semibold text-slate-900">Send an inquiry — or reach us directly below.</p>
           </FadeIn>
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
-            <div className="order-2 min-w-0 space-y-5 lg:order-1 lg:col-span-4">
+            <div className="order-2 min-w-0 space-y-7 lg:order-1 lg:col-span-4">
               <FadeIn>
-                <h2 className="text-lg font-semibold text-slate-900 sm:text-xl">Reach us directly</h2>
-                <p className="mt-2 text-[14px] leading-relaxed text-slate-600 sm:text-[15px]">
+                <h2 className="text-lg font-semibold text-slate-900 sm:text-xl mt-5">Reach us directly</h2>
+                <p className="mt-4 text-[14px] leading-relaxed text-slate-600 sm:text-[15px]">
                   Pick the channel you prefer — same team, same standards.
                 </p>
               </FadeIn>
 
-              <FadeIn delay={0.05} className="space-y-3 sm:space-y-4">
+              <FadeIn delay={0.05} className="space-y-5 sm:space-y-6">
                 <motion.a
                   href={PHONE_TEL}
                   className="group flex min-h-[56px] items-start gap-4 overflow-hidden rounded-2xl border border-slate-200/90 bg-white/90 p-4 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.2)] backdrop-blur-sm transition active:bg-violet-50/30 hover:border-violet-200 hover:shadow-[0_20px_50px_-20px_rgba(99,102,241,0.2)] sm:min-h-0 sm:p-5"
@@ -323,7 +346,29 @@ export default function ContactPage() {
                     </p>
                   </div>
                 </motion.a>
-
+<motion.div
+  className="group flex min-h-[56px] items-start gap-4 overflow-hidden rounded-2xl border border-slate-200/90 bg-white/90 p-4 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.2)] backdrop-blur-sm transition hover:border-violet-200 hover:shadow-[0_20px_50px_-20px_rgba(99,102,241,0.2)] sm:min-h-0 sm:p-5"
+  whileHover={reduce ? undefined : { y: -3 }}
+  whileTap={reduce ? undefined : { scale: 0.99 }}
+  transition={spring}
+>
+  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-violet-100 to-indigo-100 text-violet-700 ring-1 ring-violet-200/80 transition group-hover:from-violet-200 group-hover:to-indigo-200 sm:h-12 sm:w-12">
+    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg>
+  </span>
+  <div className="min-w-0 flex-1">
+    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Location</p>
+    <p className="mt-1 text-base font-semibold text-slate-900 sm:text-lg">Gujarat, India</p>
+    <p className="mt-1 text-[13px] text-slate-500 leading-relaxed">
+      Ahmedabad · Remote-first delivery
+    </p>
+    <p className="mt-2 text-xs font-medium text-violet-600 opacity-100 sm:opacity-0 sm:transition sm:group-hover:opacity-100">
+      In-person by appointment →
+    </p>
+  </div>
+</motion.div>
                 <motion.div
                   className="rounded-2xl border border-slate-200/90 bg-white/90 p-4 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.15)] backdrop-blur-sm sm:p-5"
                   whileHover={reduce ? undefined : { y: -2 }}
@@ -390,10 +435,10 @@ export default function ContactPage() {
               </FadeIn>
 
               <FadeIn delay={0.12}>
-                <div className="rounded-2xl border border-dashed border-violet-200/80 bg-violet-50/50 px-5 py-4 backdrop-blur-sm">
-                  <p className="text-[11px] font-bold uppercase tracking-wider text-violet-600/80">Response</p>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                    <span className="font-semibold text-slate-800">~24h</span> acknowledgement on weekdays. For proposals we may
+                <div className="rounded-2xl border border-dashed border-violet-300/80 bg-violet-200/50 px-5 py-4 backdrop-blur-sm">
+                  <p className="text-[14px] font-bold uppercase tracking-wider text-violet-500/80">Response</p>
+                  <p className="mt-3 text-sm font-medium leading-relaxed text-slate-600">
+                    <span className="font-bold text-slate-800">~24h </span> acknowledgement on weekdays. For proposals we may
                     suggest a short call to align on goals.
                   </p>
                 </div>
@@ -530,7 +575,7 @@ export default function ContactPage() {
                           </div>
                         </div>
 
-                        <div className="mt-8">
+                        {/* <div className="mt-8">
                           <p className="text-sm font-medium text-slate-700">What are you exploring?</p>
                           <div className="mt-3 flex flex-wrap gap-2 sm:gap-2.5">
                             {topics.map((t) => {
@@ -554,8 +599,32 @@ export default function ContactPage() {
                               );
                             })}
                           </div>
-                        </div>
-
+                        </div> */}
+<div className="mt-8">
+  <label htmlFor="contact-topic" className="text-sm font-medium text-slate-700">
+    What are you exploring?
+  </label>
+  <div className="relative mt-2">
+    <select
+      id="contact-topic"
+      value={topic}
+      onChange={(e) => setTopic(e.target.value as Topic | "")}
+      className="w-full min-h-[48px] appearance-none rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-900 outline-none transition cursor-pointer focus:border-violet-400 focus:ring-2 focus:ring-violet-200/80 sm:py-3.5"
+    >
+      {/* <option value="">Select a topic…</option> */}
+      {topics.map((t) => (
+        <option key={t} value={t}>
+          {t}
+        </option>
+      ))}
+    </select>
+    <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-slate-400">
+      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+        <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </div>
+  </div>
+</div>
                         <div className="mt-8">
                           <label htmlFor="contact-message" className="text-sm font-medium text-slate-700">
                             How can we help? <span className="text-red-500">*</span>
@@ -567,21 +636,21 @@ export default function ContactPage() {
                               setMessage(e.target.value);
                               if (errors.message) setErrors((o) => ({ ...o, message: "" }));
                             }}
-                            rows={5}
+                            rows={2}
                             className={`${errors.message ? inputErr : inputOk} min-h-[140px] resize-y sm:min-h-[120px]`}
                             placeholder="Category, channels, spend level, and what success looks like for you."
                           />
                           {errors.message && <p className="mt-1.5 text-xs font-medium text-red-600">{errors.message}</p>}
                         </div>
 
-                        <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-5">
+                        <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-5">
                           <motion.button
                             type="submit"
-                            className="inline-flex min-h-[48px] w-full items-center justify-center rounded-full bg-gradient-to-r from-violet-600 to-fuchsia-600 px-8 text-sm font-semibold text-white shadow-lg shadow-violet-500/30 transition hover:from-violet-500 hover:to-fuchsia-500 sm:h-12 sm:w-auto sm:px-12"
+                            className="inline-flex min-h-[48px] w-full items-center justify-center rounded-2xl bg-gradient-to-r from-violet-600 to-fuchsia-600 px-8 text-sm font-semibold text-white shadow-lg shadow-violet-500/30 transition hover:from-violet-500 hover:to-fuchsia-500 sm:h-12 sm:w-auto sm:px-12"
                             whileHover={reduce ? undefined : { scale: 1.02, y: -2 }}
                             whileTap={reduce ? undefined : { scale: 0.98 }}
                           >
-                            Prepare email draft
+                            Schedule Now
                           </motion.button>
                           <p className="text-xs leading-relaxed text-slate-500">
                             We use your details only to respond. No resale, no spam lists.

@@ -5,22 +5,22 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import TopBar from "./TopBar";
-
+import Image from "next/image";
 type MenuKey = "solutions" | "knowledge" | null;
 
 const solutionsSections = [
   {
     title: "Performance marketing (paid)",
     links: [
-      { label: "Meta Ads", href: "#", Icon: IconMegaphone },
-      { label: "Google Ads", href: "#", Icon: IconSearchChart },
+      { label: "Meta Ads", href: "/services/meta-ads", Icon: IconMegaphone },
+      { label: "Google Ads", href: "/services/google-ads", Icon: IconSearchChart },
       { label: "Amazon Ads", href: "#", Icon: IconPackage },
     ],
   },
   {
     title: "Design and development",
     links: [
-      { label: "Website Design (UI/UX)", href: "#", Icon: IconLayout },
+      { label: "Website Design (UI/UX)", href: "/services/website-design", Icon: IconLayout },
       { label: "Website Development", href: "#", Icon: IconCode },
       { label: "Shopify Development", href: "#", Icon: IconShopping },
     ],
@@ -310,7 +310,7 @@ export default function Navbar() {
           aria-hidden
         />
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-2.5 sm:px-8 lg:px-10">
-        <Link
+        {/* <Link
           href="/"
           className="group flex shrink-0 items-center gap-3 rounded-xl py-0.5 pr-2 transition hover:opacity-95"
         >
@@ -326,8 +326,28 @@ export default function Navbar() {
               Accelerating brands
             </span>
           </div>
-        </Link>
+        </Link> */}
+<Link
+  href="/"
+  className="group flex items-center gap-3"
+>
+  <Image
+    src="/techify-logo.png"
+    alt="Techify Logo"
+    width={60}
+    height={60}
+    className="object-fit"
+  />
 
+  {/* <div className="leading-tight">
+    <span className="block text-lg font-bold text-slate-900">
+      Techify
+    </span>
+    <span className="block text-[9px] font-bold uppercase tracking-[0.2em] text-slate-500">
+      Accelerating brands
+    </span>
+  </div> */}
+</Link>
         <nav className="hidden items-center gap-0.5 md:flex" aria-label="Main">
           <Link
             href="/"

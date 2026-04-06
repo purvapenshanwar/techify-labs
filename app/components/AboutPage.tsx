@@ -199,8 +199,10 @@ export default function AboutPage() {
                   both understand.
                 </h1>
                 <p className="mt-8 max-w-lg text-[17px] leading-[1.7] text-white/65">
-                  From Gujarat we partner with brands across India — paid social, search, SEO, and commerce in one operating
-                  rhythm, so leadership sees a single story from spend to sale.
+                  We’re a 360° digital marketing firm built
+for today’s fast-changing world.
+Strategy, creativity, and performance sit
+at the heart of everything we do.
                 </p>
                 <div className="mt-10 flex flex-wrap gap-4">
                   <motion.a
@@ -248,7 +250,7 @@ export default function AboutPage() {
                 <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-violet-500/20 via-fuchsia-500/10 to-transparent blur-2xl lg:-inset-8" aria-hidden />
                 <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 shadow-2xl shadow-black/50 ring-1 ring-white/10 sm:aspect-[5/4] lg:aspect-[4/3]">
                   <Image
-                    src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=85"
+                    src="https://images.unsplash.com/photo-1729714055320-4d1c5d5e213d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="Modern workspace with natural light"
                     fill
                     className="object-cover"
@@ -257,13 +259,13 @@ export default function AboutPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#050816]/90 via-[#050816]/20 to-transparent" aria-hidden />
                   <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-violet-300/90">Ahmedabad · Gujarat</p>
-                    <p className="mt-2 max-w-md text-sm leading-relaxed text-white/85 sm:text-[15px]">
-                      Client workshops with media, creative, and analytics in one room — decisions stay tied to your numbers.
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-violet-300/90">Pune Maharashtra</p>
+                    <p className="mt-2 max-w-md text-sm leading-relaxed text-white/85 sm:text-[25px]">
+                      About Us
                     </p>
                   </div>
                 </div>
-                <motion.div
+                {/* <motion.div
                   className="absolute -bottom-6 -left-4 hidden max-w-[200px] rounded-2xl border border-white/10 bg-[#0c1228]/90 p-4 shadow-xl backdrop-blur-xl sm:block lg:-left-8 lg:max-w-[220px]"
                   initial={reduce ? false : { opacity: 0, x: -12 }}
                   animate={reduce ? undefined : { opacity: 1, x: 0 }}
@@ -272,7 +274,7 @@ export default function AboutPage() {
                 >
                   <p className="text-xs font-semibold text-white">One roadmap</p>
                   <p className="mt-1 text-[11px] leading-snug text-white/55">Paid, organic, and build work share the same weekly priorities.</p>
-                </motion.div>
+                </motion.div> */}
               </motion.div>
             </div>
           </div>
